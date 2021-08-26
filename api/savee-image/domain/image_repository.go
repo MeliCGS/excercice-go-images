@@ -1,5 +1,5 @@
 package image_domain
 
 type ImageRepository interface {
-	GetListNumberRandom() []*ListRandom
+	GetImageEndpoint(total int) []*Image
 }

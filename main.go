@@ -1,13 +1,11 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
-	"strconv"
 
+	image_infrastructure "github.com/MeliCGS/NewRepoGoSavee/api/savee-image/infrastructure"
 	"github.com/gorilla/mux"
 )
 
@@ -51,27 +49,27 @@ import (
 // 	return listHeight
 // }
 
-func GetImageEndpoint(w http.ResponseWriter, r *http.Request) {
-	total, err := strconv.Atoi(r.URL.Query().Get("total"))
+// func GetImageEndpoint(w http.ResponseWriter, r *http.Request) {
+// 	total, err := strconv.Atoi(r.URL.Query().Get("total"))
 
-	if err != nil {
-		total = 10
-	}
+// 	if err != nil {
+// 		total = 10
+// 	}
 
-	list := getHeight(total)
-	images := []*Image{}
-	for i := 0; i < len(list); i++ {
-		images = append(images, &Image{
-			ID:    list[i].Id,
-			Url:   fmt.Sprintf("https://picsum.photos/300/%v", list[i].Height),
-			Size:  &Size{300, int(list[i].Height)},
-			Autor: "prueba",
-			Alt:   "prueb",
-		})
-	}
-	w.Header().Add("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(&images)
-}
+// 	list := getHeight(total)
+// 	images := []*Image{}
+// 	for i := 0; i < len(list); i++ {
+// 		images = append(images, &Image{
+// 			ID:    list[i].Id,
+// 			Url:   fmt.Sprintf("https://picsum.photos/300/%v", list[i].Height),
+// 			Size:  &Size{300, int(list[i].Height)},
+// 			Autor: "prueba",
+// 			Alt:   "prueb",
+// 		})
+// 	}
+// 	w.Header().Add("Content-Type", "application/json")
+// 	json.NewEncoder(w).Encode(&images)
+// }
 
 func main() {
 	port := os.Getenv("PORT")
@@ -81,6 +79,6 @@ func main() {
 	}
 
 	router := mux.NewRouter()
-	router.HandleFunc("/images", GetImageEndpoint).Methods("GET")
+	router.HandleFunc("/images", image_infrastructure.GetImageHandler).Methods("GET")
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }
