@@ -12,3 +12,7 @@ type Image struct {
 	Alt   string `json:"alt"`
 	Size  *Size  `json:"size"`
 }
+type ListRandom struct {
+	Id     int `json:"id"`
+	Height int `json:"height"`
+}

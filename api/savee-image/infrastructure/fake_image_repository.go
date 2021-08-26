@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	image_domain "github.com/MeliCGS/excercice-go-images.git/api/domain"
+	image_domain "github.com/MeliCGS/excercice-go-images/api/savee-image/domain"
 )
 
 type IntRange struct {

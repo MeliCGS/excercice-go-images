@@ -1,7 +1,7 @@
 package image_application
 
 import (
-	image_domain "github.com/MeliCGS/excercice-go-images.git/api/domain"
+	image_domain "github.com/MeliCGS/excercice-go-images/api/savee-image/domain"
 )
 
 type ImageGetImage struct {
@@ -9,5 +9,5 @@ type ImageGetImage struct {
 }
 
 func (p *ImageGetImage) SearchImage() []*image_domain.Image {
-	return p.Repo.GetImage()
+	return p.Repo.GetListNumberRandom()
 }
