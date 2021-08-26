@@ -34,9 +34,9 @@ func (ir *IntRange) NextRandom(r *rand.Rand) int {
 	return r.Intn(ir.max-ir.min+1) + ir.min
 }
 
-var listHeight = []int{}
-
 func getHeight(total int) []int {
+	listHeight := []int{}
+
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	intRange := IntRange{1, 10}
 	for i := 0; i < total; i++ {
