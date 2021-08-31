@@ -13,12 +13,14 @@ func TestGetList(t *testing.T) {
 	var valueList = len(randomList)
 	var valueCompare = 10
 
-	// if len(randomList) == 10 {
-	// 	t.Log("El test ha finalizado correctamente")
-	// } else {
-	// 	t.Error("la lista esta vacia")
-	// }
-
 	assert.Equal(t, valueList, valueCompare, "The two variables should be the same length.")
 
+}
+
+func TestGetRandom(t *testing.T) {
+	var randomList = fake_image_repository.GetListNumberRandom(10)
+	var valueList = len(randomList)
+	var valueCompare = 10
+
+	assert.Equal(t, valueList, valueCompare, "GetListNumberRandom have variables should be the same length.")
 }
