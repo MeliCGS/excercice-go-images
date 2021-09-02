@@ -80,5 +80,6 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/images", image_infrastructure.GetImageHandler).Methods("GET")
+	router.HandleFunc("/images", image_infrastructure.UploadImageHandler).Methods("PUT")
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }
