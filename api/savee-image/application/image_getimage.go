@@ -8,6 +8,6 @@ type ImageGetImage struct {
 	Repo image_domain.ImageRepository
 }
 
-func (i *ImageGetImage) SearchImage(total int) []*image_domain.Image {
-	return i.Repo.GetImageEndpoint(total)
-}
+// func (i *ImageGetImage) SearchImage(total int) []*image_domain.Image {
+// 	return i.Repo.GetImageEndpoint(total)
+// }

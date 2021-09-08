@@ -39,8 +39,4 @@ func (c *CloudinaryImageUploader) UploadImage(image io.Reader) string {
 	}
 
 	return uploadResult.SecureURL
-
-	// resp, err := cld.Admin.Asset(ctx, admin.AssetParams{PublicID: "my_image"});
-	// if err != nil {...}
-	// log.Println(resp.SecureURL)
 }

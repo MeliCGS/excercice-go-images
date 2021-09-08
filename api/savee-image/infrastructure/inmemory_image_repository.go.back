@@ -1,0 +1,65 @@
+// package image_infrastructure
+
+// import (
+// 	image_domain "github.com/MeliCGS/NewRepoGoSavee/api/savee-image/domain"
+// )
+
+// type InMemoryImageRepository struct {
+// 	// Expose images for tests
+// 	Images []*image_domain.Image
+// }
+
+// func NewInMemoryImageRepository(images []*image_domain.Image) *InMemoryImageRepository {
+// 	return &InMemoryImageRepository{
+// 		Images: images,
+// 	}
+// }
+
+// func (r *InMemoryImageRepository) Add(image *image_domain.Image) {
+// 	r.Images = append(r.Images, image)
+// }
+
+// func (r *InMemoryImageRepository) GetAll() []*image_domain.Image {
+// 	return r.Images
+// }
+
+// func (r *InMemoryImageRepository) Remove(id image_domain.Image) {
+// 	foundIndex := r.findIndex(id)
+// 	lastIndex := len(r.Images) - 1
+
+// 	if foundIndex == -1 {
+// 		return
+// 	}
+
+// 	r.Images[foundIndex] = r.Images[lastIndex]
+// 	r.Images = r.Images[:lastIndex]
+// }
+
+// func (r *InMemoryImageRepository) Update(image *image_domain.Image) {
+// 	foundImage := r.Find(image.ID) // revisar
+
+// 	if foundImage != nil {
+// 		foundImage.Url = image.Url
+// 		foundImage.Autor = image.Autor
+// 	}
+// }
+
+// func (r *InMemoryImageRepository) Find(id image_domain.Image) *image_domain.Image {
+// 	foundIndex := r.findIndex(id)
+
+// 	if foundIndex == -1 {
+// 		return nil
+// 	}
+
+// 	return r.Images[foundIndex]
+// }
+
+// func (r *InMemoryImageRepository) findIndex(id image_domain.Image) int {
+// 	for i, image := range r.Images {
+// 		if image.ID == id { //revisar
+// 			return i
+// 		}
+// 	}
+
+// 	return -1
+// }
